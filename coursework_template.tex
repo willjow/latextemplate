@@ -1,0 +1,182 @@
+% REMEMBER TO SEARCH FOR COMMENTS BEFORE SUBMITTING %
+\documentclass{article}
+\usepackage{amsmath,amssymb, amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage[shortlabels]{enumitem}
+\usepackage{tabto}
+	\NumTabs{20}
+\usepackage{nicefrac}
+\usepackage[nobreak=true]{mdframed}
+\usepackage{adjmulticol}
+\usepackage{blkarray}
+\usepackage[parfill]{parskip}
+\usepackage[per-mode = symbol]{siunitx}
+\usepackage{graphicx}
+\usepackage{gensymb}
+\usepackage{textcomp}
+\usepackage{tabu}
+\usepackage{mathtools}
+\usepackage{xcolor}
+\usepackage{listings, lstautogobble}
+\usepackage{verbatim}
+\graphicspath{{images/}}
+
+\newcommand\horline{
+    \vspace*{1em}
+    \hrule
+    \vspace*{0.5em}
+}
+
+\renewcommand\nicefrac[2]{%
+    \raise.5ex\hbox{$#1$}%
+    \kern-.1em/\kern-.15em%
+    \lower.25ex\hbox{$#2$}}
+
+\newcommand{\skipabove}{\setlength{\abovedisplayskip}{0pt}}
+\newcommand{\skipbelow}{\setlength{\belowdisplayskip}{0pt}}
+\newcommand{\spaceabove}{\setlength{\abovedisplayskip}{10pt plus 2pt minus 5pt}}
+\newcommand{\spacebelow}{\setlength{\belowdisplayskip}{10pt plus 2pt minus 5pt}}
+\newcommand{\spacerightarrow}{\hspace*{0.6em} \longrightarrow \hspace*{0.6em}}
+
+\lstset{ %
+autogobble=true
+language=Python,                % choose the language of the code
+basicstyle=\footnotesize,       % the size of the fonts that are used for the code
+numbers=left,                   % where to put the line-numbers
+numberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
+stepnumber=1,                   % the step between two line-numbers. If it is 1 each line will be numbered
+numbersep=5pt,                  % how far the line-numbers are from the code
+backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
+showspaces=false,               % show spaces adding particular underscores
+showstringspaces=false,         % underline spaces within strings
+showtabs=false,                 % show tabs within strings adding particular underscores
+frame=single,           % adds a frame around the code
+tabsize=2,          % sets default tabsize to 2 spaces
+captionpos=b,           % sets the caption-position to bottom
+breaklines=true,        % sets automatic line breaking
+breakatwhitespace=false,    % sets if automatic breaks should only happen at whitespace
+escapeinside={\%*}{*)},          % if you want to add a comment within your code
+xleftmargin={4em},
+xrightmargin={4em},
+mathescape=true
+}
+
+%%%%%%%%%%%%%%%%%%% Header -- Fill in the fields %%%%%%%%%%%%%%%%%%% 
+
+\def\Name{William Jow}  % Your name
+\def\SID{3031951053} % Your student ID
+
+\def\CourseNum{} % Course Number (e.g., CS 61A)
+\def\CourseTit{} % Course Title (e.g., Structure and Interpretation of Computer Programs)
+\def\Term{} % Term (e.g., Fall 2016)
+\def\Instructors{} % Professors (e.g., John Denero)
+\def\WorkTit{} % Type of work (e.g., Worksheet)
+\def\WorkNumber{} % Work number (e.g., 2)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newskip\saveskip
+\newskip\saveindent
+\saveskip=\baselineskip
+
+\textheight=9in
+\textwidth=6.5in
+\topmargin=-.75in
+\oddsidemargin=0.0in
+\evensidemargin=0.0in
+\parindent=0pt
+\parskip=5pt
+\itemsep=-1pt
+\floatsep 9pt plus 2pt minus 3pt
+\intextsep 9pt plus 2pt minus 3pt
+\textfloatsep=9pt plus 2pt minus 3pt
+\renewcommand{\baselinestretch}{1.0}
+\font\dunhd=cmdunh10 scaled \magstep3
+\font\dunhc=cmdunh10 scaled \magstep2
+\font\dunhb=cmdunh10 scaled \magstep1
+\font\dunha=cmdunh10 scaled \magstep1
+
+\makeatletter
+\def\maketitle{%
+ \begingroup
+ \newpage
+ \global\@topnum\z@ \@maketitle 
+ \thispagestyle{myheadings}
+ \endgroup
+ \setcounter{footnote}{0}
+ \let\maketitle\relax
+ \let\@maketitle\relax}
+
+\def\@maketitle{\newpage
+\hrule height6pt \vskip .6em
+\makebox[1.5in][l]{\dunhb \CourseNum}
+{\dunhb \CourseTit \hfill \ }
+\vspace{-6pt}
+\flushright
+\makebox[1.5in][l]{\dunhb \Term}
+{\dunhb \Instructors \hfill \dunhd \WorkTit \ \WorkNumber \par}
+\vskip 0.6em
+\hrule height6pt 
+ \par
+ \vskip .5em}
+
+\def\section{\@startsection {section}{1}{\z@}{-3.0ex plus -.6ex minus 
+    -.2ex}{1.3ex plus .1ex}{\dunhb}}
+\def\subsection{\@startsection{subsection}{2}{\z@}{-1.6ex plus -.5ex minus 
+   -.1ex}{0.9ex plus .1ex}{\dunha}}
+
+%%%%%% page headings
+
+\def\foottext{\begin{footnotesize}\Name\ --\ \SID \hfill\qquad\thepage\end{footnotesize}}
+
+\def\ps@myheadings{\let\@mkboth\@gobbletwo
+\def\@oddfoot{\foottext}%
+\def\@evenfoot{\foottext}%
+\def\@evenhead{}\def\@oddhead{}}
+\makeatother
+
+\pagestyle{myheadings}
+
+%%%%% document-specific macros
+
+% Matrices
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\newcount\arrowcount
+\newcommand\arrows[1]{
+        \global\arrowcount#1
+        \ifnum\arrowcount>0
+                \begin{matrix}[c]
+                \expandafter\nextarrow
+        \fi
+}
+
+\newcommand\nextarrow[1]{
+        \global\advance\arrowcount-1
+        \ifx\relax#1\relax\else \xrightarrow{#1}\fi
+        \ifnum\arrowcount=0
+                \end{matrix}
+        \else
+                \\
+                \expandafter\nextarrow
+        \fi
+}
+
+% Black Board Bold
+
+\def\N{\mathbb{N}}
+\def\R{\mathbb{R}}
+\def\C{\mathbb{C}}
+\def\Q{\mathbb{Q}}
+\def\Z{\mathbb{Z}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\maketitle
+\end{document}
