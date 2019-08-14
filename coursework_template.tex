@@ -27,14 +27,6 @@
     \vspace*{0.5em}
 }
 
-\renewcommand\nicefrac[2]{%
-    \raise.5ex\hbox{$#1$}%
-    \kern-.1em/\kern-.15em%
-    \lower.25ex\hbox{$#2$}}
-
-\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
-\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
-
 \newcommand{\skipabove}{\setlength{\abovedisplayskip}{0pt}}
 \newcommand{\skipbelow}{\setlength{\belowdisplayskip}{0pt}}
 \newcommand{\spaceabove}{\setlength{\abovedisplayskip}{10pt plus 2pt minus 5pt}}
@@ -42,7 +34,7 @@
 \newcommand{\spacerightarrow}{\hspace*{0.6em} \longrightarrow \hspace*{0.6em}}
 
 \lstset{ %
-autogobble=true
+autogobble=true,
 language=Python,                % choose the language of the code
 basicstyle=\footnotesize,       % the size of the fonts that are used for the code
 numbers=left,                   % where to put the line-numbers
@@ -64,7 +56,7 @@ xrightmargin={4em},
 mathescape=true
 }
 
-%%%%%%%%%%%%%%%%%%% Header -- Fill in the fields %%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%% Header -- Fill in the fields %%%%%%%%%%%%%%%%%%%
 
 \def\Name{William Jow}  % Your name
 \def\SID{3031951053} % Your student ID
@@ -103,7 +95,7 @@ mathescape=true
 \def\maketitle{%
  \begingroup
  \newpage
- \global\@topnum\z@ \@maketitle 
+ \global\@topnum\z@ \@maketitle
  \thispagestyle{myheadings}
  \endgroup
  \setcounter{footnote}{0}
@@ -112,8 +104,9 @@ mathescape=true
 
 \def\@maketitle{\newpage
 \hrule height6pt \vskip .6em
+\flushright
 \makebox[1.5in][l]{\dunhb \CourseNum}
-{\dunhb \CourseTit \hfill \ }
+{\dunhb \CourseTit \hfill \Name \par}
 \vspace{-6pt}
 \flushright
 \makebox[1.5in][l]{\dunhb \Term}
@@ -123,9 +116,9 @@ mathescape=true
  \par
  \vskip .5em}
 
-\def\section{\@startsection {section}{1}{\z@}{-3.0ex plus -.6ex minus 
+\def\section{\@startsection {section}{1}{\z@}{-3.0ex plus -.6ex minus
     -.2ex}{1.3ex plus .1ex}{\dunhb}}
-\def\subsection{\@startsection{subsection}{2}{\z@}{-1.6ex plus -.5ex minus 
+\def\subsection{\@startsection{subsection}{2}{\z@}{-1.6ex plus -.5ex minus
    -.1ex}{0.9ex plus .1ex}{\dunha}}
 
 %%%%%% page headings
@@ -141,6 +134,29 @@ mathescape=true
 \pagestyle{myheadings}
 
 %%%%% document-specific macros
+
+% Misc
+\renewcommand\nicefrac[2]{%
+    \raise.5ex\hbox{$#1$}%
+    \kern-.1em/\kern-.15em%
+    \lower.25ex\hbox{$#2$}}
+
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\paren}[1]{\left( #1 \right)}
+\newcommand{\set}[1] {\left\{ #1 \right\}}
+\newcommand{\bracket}[1] {\left[ #1 \right]}
+% These are somewhat obsoleted by the \set macro
+%\renewcommand{\max}[1]{\operatorname{max} \left\{ #1 \right\}}
+%\renewcommand{\min}[1]{\operatorname{min} \left\{ #1 \right\}}
+
+% Black Board Bold
+\def\N{\mathbb{N}}
+\def\R{\mathbb{R}}
+\def\C{\mathbb{C}}
+\def\Q{\mathbb{Q}}
+\def\Z{\mathbb{Z}}
 
 % Matrices
 \makeatletter
@@ -169,14 +185,6 @@ mathescape=true
                 \expandafter\nextarrow
         \fi
 }
-
-% Black Board Bold
-
-\def\N{\mathbb{N}}
-\def\R{\mathbb{R}}
-\def\C{\mathbb{C}}
-\def\Q{\mathbb{Q}}
-\def\Z{\mathbb{Z}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
