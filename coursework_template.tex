@@ -1,6 +1,7 @@
 % REMEMBER TO SEARCH FOR COMMENTS BEFORE SUBMITTING %
 \documentclass{article}
 \usepackage{amsmath,amssymb,amsthm}
+\usepackage{cancel}
 \usepackage[margin=1in]{geometry}
 \usepackage[shortlabels]{enumitem}
 \usepackage{tabto}
@@ -19,7 +20,19 @@
 \usepackage{xcolor}
 \usepackage{listings, lstautogobble}
 \usepackage{verbatim}
-\graphicspath{{images/}}
+
+% pdf_tex figures
+\usepackage{import}
+\usepackage{xifthen}
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\newcommand{\incfig}[1]{%
+    \def\svgwidth{0.9\columnwidth}
+    \import{./images/}{#1.pdf_tex}
+}
+
+\graphicspath{{./images/}}
 
 \newcommand\horline{
     \vspace*{1em}
@@ -27,13 +40,7 @@
     \vspace*{0.5em}
 }
 
-\renewcommand\nicefrac[2]{%
-    \raise.5ex\hbox{$#1$}%
-    \kern-.1em/\kern-.15em%
-    \lower.25ex\hbox{$#2$}}
-
-\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
-\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\newcommand{\quotes}[1]{``#1''}
 
 \newcommand{\skipabove}{\setlength{\abovedisplayskip}{0pt}}
 \newcommand{\skipbelow}{\setlength{\belowdisplayskip}{0pt}}
@@ -42,7 +49,7 @@
 \newcommand{\spacerightarrow}{\hspace*{0.6em} \longrightarrow \hspace*{0.6em}}
 
 \lstset{ %
-autogobble=true
+autogobble=true,
 language=Python,                % choose the language of the code
 basicstyle=\footnotesize,       % the size of the fonts that are used for the code
 numbers=left,                   % where to put the line-numbers
@@ -64,7 +71,7 @@ xrightmargin={4em},
 mathescape=true
 }
 
-%%%%%%%%%%%%%%%%%%% Header -- Fill in the fields %%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%% Header -- Fill in the fields %%%%%%%%%%%%%%%%%%%%
 
 \def\Name{William Jow}  % Your name
 \def\SID{3031951053} % Your student ID
@@ -103,7 +110,7 @@ mathescape=true
 \def\maketitle{%
  \begingroup
  \newpage
- \global\@topnum\z@ \@maketitle 
+ \global\@topnum\z@ \@maketitle
  \thispagestyle{myheadings}
  \endgroup
  \setcounter{footnote}{0}
@@ -119,13 +126,13 @@ mathescape=true
 \makebox[1.5in][l]{\dunhb \Term}
 {\dunhb \Instructors \hfill \dunhd \WorkTit \ \WorkNumber \par}
 \vskip 0.6em
-\hrule height6pt 
+\hrule height6pt
  \par
  \vskip .5em}
 
-\def\section{\@startsection {section}{1}{\z@}{-3.0ex plus -.6ex minus 
+\def\section{\@startsection {section}{1}{\z@}{-3.0ex plus -.6ex minus
     -.2ex}{1.3ex plus .1ex}{\dunhb}}
-\def\subsection{\@startsection{subsection}{2}{\z@}{-1.6ex plus -.5ex minus 
+\def\subsection{\@startsection{subsection}{2}{\z@}{-1.6ex plus -.5ex minus
    -.1ex}{0.9ex plus .1ex}{\dunha}}
 
 %%%%%% page headings
@@ -141,6 +148,39 @@ mathescape=true
 \pagestyle{myheadings}
 
 %%%%% document-specific macros
+
+% Theorems
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{corollary}{Corollary}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{remark}{Remark}
+\newtheorem*{definition}{Definition}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+% Misc
+\renewcommand\nicefrac[2]{%
+    \raise.5ex\hbox{$#1$}%
+    \kern-.1em/\kern-.15em%
+    \lower.25ex\hbox{$#2$}}
+
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\paren}[1]{\left( #1 \right)}
+\newcommand{\set}[1] {\left\{ #1 \right\}}
+\newcommand{\bracket}[1] {\left[ #1 \right]}
+% These are somewhat obsoleted by the \set macro
+%\renewcommand{\max}[1]{\operatorname{max} \left\{ #1 \right\}}
+%\renewcommand{\min}[1]{\operatorname{min} \left\{ #1 \right\}}
+\newcommand{\suchthat}{\mathrel{\Big|}}
+
+% Black Board Bold
+\def\E{\mathbb{E}}
+\def\N{\mathbb{N}}
+\def\R{\mathbb{R}}
+\def\C{\mathbb{C}}
+\def\Q{\mathbb{Q}}
+\def\Z{\mathbb{Z}}
 
 % Matrices
 \makeatletter
@@ -170,16 +210,18 @@ mathescape=true
         \fi
 }
 
-% Black Board Bold
-
-\def\N{\mathbb{N}}
-\def\R{\mathbb{R}}
-\def\C{\mathbb{C}}
-\def\Q{\mathbb{Q}}
-\def\Z{\mathbb{Z}}
+% Probability
+\newcommand{\prob}[1]{\mathbb{P}\left( #1 \right)}
+\newcommand{\expec}[1]{\mathbb{E}\left( #1 \right)}
+\newcommand{\var}[1]{\operatorname{var}\left( #1 \right)}
+\newcommand{\cov}[1]{\operatorname{cov}\left( #1 \right)}
+\newcommand{\given}{\mathbin{\vert}}
+\newcommand{\gaussian}{\mathcal{N}}
+\newcommand{\unit}{\mathds{1}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 \maketitle
+\vspace*{1em}
 \end{document}
