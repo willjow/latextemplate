@@ -27,9 +27,9 @@
 \usepackage{pdfpages}
 \usepackage{transparent}
 
-\newcommand{\incfig}[1]{%
-    \def\svgwidth{0.9\columnwidth}
-    \import{./images/}{#1.pdf_tex}
+\newcommand{\incfig}[2][0.9]{
+    \def\svgwidth{#1\columnwidth}
+    \import{./images/}{#2.pdf_tex}
 }
 
 \graphicspath{{./images/}}
@@ -150,6 +150,19 @@ mathescape=true
 
 %%%%% document-specific macros
 
+% Under / Over Arrow Annotation
+\newcommand{\underarrow}[3][]{
+  \underset{
+    \substack{#1\uparrow\\\hidewidth#2\hidewidth}
+  }{#3}
+}
+
+\newcommand{\overarrow}[3][]{
+  \overset{
+    \substack{\hidewidth#2\hidewidth\\#1\downarrow}
+  }{#3}
+}
+
 % Theorems
 \newtheorem*{theorem}{Theorem}
 \newtheorem*{corollary}{Corollary}
@@ -164,6 +177,7 @@ mathescape=true
     \kern-.1em/\kern-.15em%
     \lower.25ex\hbox{$#2$}}
 
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
 \newcommand{\abs}[1]{\left| #1 \right|}
