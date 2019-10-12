@@ -1,4 +1,19 @@
 % REMEMBER TO SEARCH FOR COMMENTS BEFORE SUBMITTING %
+
+%%%%%%%%%%%%%%%%%%% Header -- Fill in the fields %%%%%%%%%%%%%%%%%%%%
+
+\def\Name{William Jow}  % Your name
+\def\SID{3031951053} % Your student ID
+
+\def\CourseNum{} % Course Number (e.g., CS 61A)
+\def\CourseTit{} % Course Title (e.g., Structure and Interpretation of Computer Programs)
+\def\Term{} % Term (e.g., Fall 2016)
+\def\Instructors{} % Professors (e.g., John Denero)
+\def\WorkTit{} % Type of work (e.g., Worksheet)
+\def\WorkNumber{} % Work number (e.g., 2)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \documentclass{article}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{cancel}
@@ -20,6 +35,7 @@
 \usepackage{xcolor}
 \usepackage{listings, lstautogobble}
 \usepackage{verbatim}
+\usepackage{soul}
 
 % pdf_tex figures
 \usepackage{import}
@@ -71,18 +87,6 @@ xrightmargin={4em},
 mathescape=true
 }
 
-%%%%%%%%%%%%%%%%%%% Header -- Fill in the fields %%%%%%%%%%%%%%%%%%%%
-
-\def\Name{William Jow}  % Your name
-\def\SID{3031951053} % Your student ID
-
-\def\CourseNum{} % Course Number (e.g., CS 61A)
-\def\CourseTit{} % Course Title (e.g., Structure and Interpretation of Computer Programs)
-\def\Term{} % Term (e.g., Fall 2016)
-\def\Instructors{} % Professors (e.g., John Denero)
-\def\WorkTit{} % Type of work (e.g., Worksheet)
-\def\WorkNumber{} % Work number (e.g., 2)
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newskip\saveskip
@@ -122,7 +126,7 @@ mathescape=true
 \flushright
 \makebox[1.5in][l]{\dunhb \CourseNum}
 {\dunhb \CourseTit \hfill \Name \par}
-\vspace{-6pt}
+\vspace{-4pt}
 \flushright
 \makebox[1.5in][l]{\dunhb \Term}
 {\dunhb \Instructors \hfill \dunhd \WorkTit \ \WorkNumber \par}
@@ -171,12 +175,13 @@ mathescape=true
 \newtheorem*{definition}{Definition}
 \renewcommand\qedsymbol{$\blacksquare$}
 
-% Misc
+% NiceFrac
 \renewcommand\nicefrac[2]{%
     \raise.5ex\hbox{$#1$}%
     \kern-.1em/\kern-.15em%
     \lower.25ex\hbox{$#2$}}
 
+% Delimiters
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
@@ -184,9 +189,6 @@ mathescape=true
 \newcommand{\paren}[1]{\left( #1 \right)}
 \newcommand{\set}[1] {\left\{ #1 \right\}}
 \newcommand{\bracket}[1] {\left[ #1 \right]}
-% These are somewhat obsoleted by the \set macro
-%\renewcommand{\max}[1]{\operatorname{max} \left\{ #1 \right\}}
-%\renewcommand{\min}[1]{\operatorname{min} \left\{ #1 \right\}}
 \newcommand{\suchthat}{\mathrel{\Big|}}
 
 % Black Board Bold
@@ -197,7 +199,10 @@ mathescape=true
 \def\Q{\mathbb{Q}}
 \def\Z{\mathbb{Z}}
 
-% Matrices
+% Misc Math Font Styles
+\newcommand{\mbf}[1]{\mathbf{#1}}
+
+% Gaussian Elimination
 \makeatletter
 \renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
   \hskip -\arraycolsep
@@ -233,6 +238,10 @@ mathescape=true
 \newcommand{\given}{\mathbin{\vert}}
 \newcommand{\gaussian}{\mathcal{N}}
 \newcommand{\unit}{\mathds{1}}
+
+
+% Groups
+\newcommand{\actson}{\mathrel{\rotatebox[origin=c]{-90}{$\circlearrowleft$}}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
