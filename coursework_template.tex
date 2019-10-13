@@ -157,13 +157,13 @@ mathescape=true
 % Under / Over Arrow Annotation
 \newcommand{\underarrow}[3][]{
   \underset{
-    \substack{#1\uparrow\\\hidewidth#2\hidewidth}
+      \substack{\left\uparrow\vbox to #1{}\right.\\\hidewidth#2\hidewidth}
   }{#3}
 }
 
 \newcommand{\overarrow}[3][]{
   \overset{
-    \substack{\hidewidth#2\hidewidth\\#1\downarrow}
+      \substack{\hidewidth#2\hidewidth\\ \left\downarrow\vbox to #1{}\right.}
   }{#3}
 }
 
