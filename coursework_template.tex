@@ -155,13 +155,13 @@ mathescape=true
 %%%%% document-specific macros
 
 % Under / Over Arrow Annotation
-\newcommand{\underarrow}[3][]{
+\newcommand{\underarrow}[3][0.6em]{
   \underset{
       \substack{\left\uparrow\vbox to #1{}\right.\\\hidewidth#2\hidewidth}
   }{#3}
 }
 
-\newcommand{\overarrow}[3][]{
+\newcommand{\overarrow}[3][0.6em]{
   \overset{
       \substack{\hidewidth#2\hidewidth\\ \left\downarrow\vbox to #1{}\right.}
   }{#3}
