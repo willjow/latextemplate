@@ -118,10 +118,8 @@ mathescape=true
  \par
  \vskip .5em}
 
-\def\section{\@startsection {section}{1}{\z@}{-3.0ex plus -.6ex minus
-    -.2ex}{1.3ex plus .1ex}{\dunhb}}
-\def\subsection{\@startsection{subsection}{2}{\z@}{-1.6ex plus -.5ex minus
-   -.1ex}{0.9ex plus .1ex}{\dunha}}
+\def\section{\@startsection{section}{1}{\z@}{-8ex plus -.6ex minus -.2ex}{1.3ex plus .1ex}{\dunhb}}
+\def\subsection{\@startsection{subsection}{2}{\z@}{-6ex plus -.5ex minus -.1ex}{0.9ex plus .1ex}{\dunha}}
 
 %%%%%% page headings
 
@@ -152,7 +150,7 @@ mathescape=true
 
 % Theorems
 \newtheoremstyle{boldnote}
-  {\topsep} % Space above
+  {1em} % Space above
   {\topsep} % Space below
   {\itshape} % Body font
   {} % Indent amount
@@ -162,7 +160,7 @@ mathescape=true
   {\thmname{#1}\thmnumber{ #2}\thmnote{ #3}} % Theorem head spec (can be left empty, meaning `normal')
 
 \newtheoremstyle{nonitalic}
-  {\topsep} % Space above
+  {1em} % Space above
   {\topsep} % Space below
   {} % Body font
   {} % Indent amount
@@ -181,7 +179,7 @@ mathescape=true
 \renewcommand\qedsymbol{$\blacksquare$}
 
 % NiceFrac
-\renewcommand\nicefrac[2]{%
+\newcommand\bignicefrac[2]{%
     \raise.5ex\hbox{$#1$}%
     \kern-.1em/\kern-.15em%
     \lower.25ex\hbox{$#2$}}
