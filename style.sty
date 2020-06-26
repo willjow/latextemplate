@@ -1,4 +1,4 @@
-\usepackage{amsmath,amssymb,amsthm}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
 \usepackage{cancel}
 \usepackage[margin=1in]{geometry}
 \usepackage[shortlabels]{enumitem}
@@ -14,7 +14,6 @@
 \usepackage{gensymb}
 \usepackage{textcomp}
 \usepackage{tabu}
-\usepackage{mathtools}
 \usepackage{xcolor}
 \usepackage{listings, lstautogobble}
 \usepackage{verbatim}
@@ -67,6 +66,7 @@ breakatwhitespace=false,    % sets if automatic breaks should only happen at whi
 escapeinside={\%*}{*)},          % if you want to add a comment within your code
 xleftmargin={4em},
 xrightmargin={4em},
+literate={``}{\textquotedblleft}1,
 mathescape=true
 }
 
@@ -192,6 +192,7 @@ mathescape=true
 \newcommand{\paren}[1]{\left( #1 \right)}
 \newcommand{\set}[1] {\left\{ #1 \right\}}
 \newcommand{\bracket}[1] {\left[ #1 \right]}
+\newcommand{\angles}[1] {\langle #1 \rangle}
 \newcommand{\suchthat}{\mathrel{\Big|}}
 
 % Black Board Bold
@@ -204,6 +205,10 @@ mathescape=true
 
 % Misc Math Font Styles
 \newcommand{\mbf}[1]{\mathbf{#1}}
+
+% Real and Imaginary Parts to not use fraktur...
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
 
 % Gaussian Elimination
 \makeatletter
